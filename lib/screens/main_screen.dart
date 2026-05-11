@@ -23,12 +23,31 @@ class _MainScreenState extends State<MainScreen> {
     const NotificationScreen(),
   ];
 
+  final List<Widget> appBarWidget = [
+    const Text('Home'),
+    const Text('Search'),
+    const Text('Notifications'),
+  ];
   @override
   Widget build(BuildContext context) {
     Widget activeBody = widget.customBody ?? _screens[_currentScreenIndex];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Twitter')),
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
+        title: appBarWidget[_currentScreenIndex],
+        actions: [Icon(Icons.settings)],
+      ),
       drawer: DrawerScreen(
         onTabSelected: (index) {
           if (widget.onTabSelected != null) {
