@@ -39,6 +39,7 @@ class DrawerScreen extends StatelessWidget {
                       opaque: false,
                       pageBuilder: (context, anim1, anim2) => MainScreen(
                         customBody: const ProfileScreen(),
+                        customTitle: const Text('Profile'),
                         onTabSelected: onTabSelected,
                       ),
                       transitionDuration: Duration.zero,

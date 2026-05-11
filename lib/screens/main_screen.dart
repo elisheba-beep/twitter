@@ -1,3 +1,4 @@
+import 'package:basic_app/screens/messages_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:basic_app/widgets/drawer.dart';
 import 'home_screen.dart';
@@ -6,9 +7,11 @@ import 'notification_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final Widget? customBody;
+  final Widget? customTitle;
   final Function(int)? onTabSelected;
 
-  const MainScreen({super.key, this.customBody, this.onTabSelected});
+  const MainScreen(
+      {super.key, this.customBody, this.customTitle, this.onTabSelected});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -18,15 +21,17 @@ class _MainScreenState extends State<MainScreen> {
   int _currentScreenIndex = 0;
 
   final List<Widget> _screens = [
-    const HomeScreen(),
+    HomeScreen(),
     const SearchScreen(),
     const NotificationScreen(),
+    const MessagesScreen(),
   ];
 
   final List<Widget> appBarWidget = [
     const Text('Home'),
     const Text('Search'),
     const Text('Notifications'),
+    const Text('Messages'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,18 +39,27 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-        title: appBarWidget[_currentScreenIndex],
+        centerTitle: true,
+        leading: widget.customBody != null
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            : Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    icon: const Icon(Icons.person),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    tooltip:
+                        MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  );
+                },
+              ),
+        title: widget.customTitle ?? appBarWidget[_currentScreenIndex],
         actions: [Icon(Icons.settings)],
       ),
       drawer: DrawerScreen(
@@ -63,6 +77,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: activeBody,
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: widget.customBody != null ? 0 : _currentScreenIndex,
@@ -85,6 +101,7 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications), label: 'Notifications'),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Messages'),
         ],
       ),
     );
