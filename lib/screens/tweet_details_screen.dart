@@ -7,22 +7,32 @@ class TweetDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
             children: [
-              CircleAvatar(),
-              Column(
+              Row(
                 children: [
+                  CircleAvatar(
+                    child: Icon(Icons.person),
+                  ),
+                  SizedBox(width: 10),
                   Text(tweet.user),
-                  Text(tweet.content),
                 ],
               ),
+              SizedBox(height: 10),
+              Text(tweet.content),
             ],
           ),
-        ],
-      ),
+        ),
+        Divider(
+          color: Colors.grey,
+          height: 1,
+          thickness: 1,
+        ),
+      ],
     );
   }
 }

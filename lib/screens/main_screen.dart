@@ -1,4 +1,5 @@
 import 'package:basic_app/screens/messages_screen.dart';
+import 'package:basic_app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:basic_app/widgets/drawer.dart';
 import 'home_screen.dart';
@@ -21,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentScreenIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
+    const HomeScreen(),
     const SearchScreen(),
     const NotificationScreen(),
     const MessagesScreen(),
@@ -41,26 +42,49 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         centerTitle: true,
         leading: widget.customBody != null
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+            ? Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               )
             : Builder(
                 builder: (BuildContext context) {
-                  return IconButton(
-                    icon: const Icon(Icons.person),
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
-                    tooltip:
-                        MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  return Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: IconButton(
+                      icon: const Icon(Icons.person),
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      tooltip: MaterialLocalizations.of(context)
+                          .openAppDrawerTooltip,
+                    ),
                   );
                 },
               ),
         title: widget.customTitle ?? appBarWidget[_currentScreenIndex],
-        actions: [Icon(Icons.settings)],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+              child: IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SettingsScreen(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          )
+        ],
       ),
       drawer: DrawerScreen(
         onTabSelected: (index) {
