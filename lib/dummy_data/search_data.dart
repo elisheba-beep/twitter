@@ -9,7 +9,7 @@ final List trendingTopics = [
 
 final List todaysNews = [
   'Nigerians Share First JAMB Scores and Parents Reactions',
-  'Margaret Obi stuns as First Lady',
+  'Margaret Obi Stuns as First Lady',
   'Nigerians Share First JAMB Scores and Parents Reactions',
-  'Margaret Obi stuns as First Lady',
+  'Margaret Obi Stuns as First Lady',
 ];

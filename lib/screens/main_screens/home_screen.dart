@@ -1,4 +1,4 @@
-import 'tweet_details_screen.dart';
+import '../tweet_details_screen.dart';
 import 'package:basic_app/classes/tweet.dart';
 import 'package:flutter/material.dart';
 import 'package:basic_app/screens/main_screen.dart';

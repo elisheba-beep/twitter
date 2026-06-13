@@ -5,11 +5,7 @@ class CommunitiesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Communities'),
-      ),
-      body: Center(
+    return  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -29,10 +25,9 @@ class CommunitiesScreen extends StatelessWidget {
               child: const Text('Open flutter community (push)'),
             ),
           ],
-        ),
-      ),
-    );
-  }
+        )
+    );}
+  
 }
 
 class FlutterCommunityScreen extends StatelessWidget {

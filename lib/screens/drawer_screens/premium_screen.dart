@@ -6,9 +6,7 @@ class PremiumScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Premium'),
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           Center(child: Text('Premium')),
