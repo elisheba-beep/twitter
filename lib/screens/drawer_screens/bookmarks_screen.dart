@@ -9,6 +9,7 @@ class BookmarksScreen extends StatelessWidget {
       child: Column(
         children: [
           Text('Bookmarks'),
+          Text('Edited using repocode'),
         ],
       ),
     );
