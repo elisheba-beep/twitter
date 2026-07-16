@@ -33,17 +33,17 @@ class SignupScreen extends StatelessWidget {
             ),
             EliseTextField(
               hintText: 'Email',
-              leadingIcon: Icons.cases_outlined,
+              leadingIcon: Icons.mail,
               controller: emailController,
             ),
             EliseTextField(
               hintText: 'Phone Number',
-              leadingIcon: Icons.cases_outlined,
+              leadingIcon: Icons.phone,
               controller: phoneNumberController,
             ),
             EliseTextField(
               hintText: 'Password',
-              leadingIcon: Icons.cases_outlined,
+              leadingIcon: Icons.lock,
               controller: passwordController,
             ),
             ElevatedButton(

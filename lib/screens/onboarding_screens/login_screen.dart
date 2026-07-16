@@ -30,13 +30,13 @@ class _LoginScreenState extends State<LoginScreen> {
               'Log In to Elise',
             ),
             EliseTextField(
-              hintText: 'Phone Number',
-              leadingIcon: Icons.cases_outlined,
+              hintText: 'Phone, email or username',
+              leadingIcon: Icons.person,
               controller: phoneEmailUsernameController,
             ),
             EliseTextField(
               hintText: 'Password',
-              leadingIcon: Icons.cases_outlined,
+              leadingIcon: Icons.lock,
               controller: passwordController,
             ),
             Row(

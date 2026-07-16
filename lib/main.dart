@@ -1,3 +1,4 @@
+import 'package:basic_app/screens/onboarding_screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/main_screen.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF15202B),
       ),
       themeMode: ThemeMode.system,
-      home: MainScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

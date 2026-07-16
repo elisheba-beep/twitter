@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+
+class OnboardingButton extends StatelessWidget {
+  final IconData? icon;
+  final String label;
+  final Color? backgroundColour;
+  final Color? textColour;
+  final VoidCallback onPressed;
+  const OnboardingButton({
+    super.key,
+    this.icon,
+    required this.label,
+    this.backgroundColour,
+    this.textColour,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColour ?? Colors.white,
+        minimumSize: Size.fromHeight(50),
+      ),
+      onPressed: onPressed,
+      icon: Icon(
+        icon,
+        color: textColour ?? Colors.black,
+        size: 30,
+      ),
+      label: Text(
+        label,
+        style: TextStyle(
+          color: textColour ?? Colors.black,
+          fontSize: 16,
+        ),
+      ),
+    );
+  }
+}
