@@ -17,22 +17,25 @@ class OnboardingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColour ?? Colors.white,
-        minimumSize: Size.fromHeight(50),
-      ),
-      onPressed: onPressed,
-      icon: Icon(
-        icon,
-        color: textColour ?? Colors.black,
-        size: 30,
-      ),
-      label: Text(
-        label,
-        style: TextStyle(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColour ?? Colors.white,
+          minimumSize: Size.fromHeight(50),
+        ),
+        onPressed: onPressed,
+        icon: Icon(
+          icon,
           color: textColour ?? Colors.black,
-          fontSize: 16,
+          size: 32,
+        ),
+        label: Text(
+          label,
+          style: TextStyle(
+            color: textColour ?? Colors.black,
+            fontSize: 20,
+          ),
         ),
       ),
     );

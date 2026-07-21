@@ -1,4 +1,7 @@
+import 'package:basic_app/screens/main_screen.dart';
+import 'package:basic_app/screens/onboarding_screens/signup_screen.dart';
 import 'package:basic_app/widgets/onboarding_widgets/elise_textfield.dart';
+import 'package:basic_app/widgets/onboarding_widgets/onboarding_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,70 +22,110 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.all_inclusive,
-            ),
-            Text(
-              'Log In to Elise',
-            ),
-            EliseTextField(
-              hintText: 'Phone, email or username',
-              leadingIcon: Icons.person,
-              controller: phoneEmailUsernameController,
-            ),
-            EliseTextField(
-              hintText: 'Password',
-              leadingIcon: Icons.lock,
-              controller: passwordController,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Checkbox(
-                    value: isChecked,
-                    onChanged: (bool? newValue) {
-                      setState(() {
-                        isChecked = newValue ?? false;
-                      });
-                    }),
-                Text('remember me?'),
-              ],
-            ),
-            InkWell(
-              child: Text(
-                'forgot password',
-                style: TextStyle(
-                  color: Colors.blue,
+                Icon(
+                  Icons.earbuds,
                 ),
-              ),
-              onTap: () {},
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'Log In',
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('dont have an account?'),
-                InkWell(
+                SizedBox(
+                  height: 60,
+                ),
+                Text(
+                  'Log In to Elise',
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                EliseTextField(
+                  hintText: 'Phone, email or username',
+                  leadingIcon: Icons.person,
+                  controller: phoneEmailUsernameController,
+                ),
+                EliseTextField(
+                  hintText: 'Password',
+                  leadingIcon: Icons.lock,
+                  controller: passwordController,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Checkbox(
+                        value: isChecked,
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            isChecked = newValue ?? false;
+                          });
+                        }),
+                    Text(
+                      'Remember Me?',
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(width:5,),
+                    InkWell(
                   child: Text(
-                    'signup',
+                    'Forgot Password?',
                     style: TextStyle(
                       color: Colors.blue,
+                      fontSize: 16,
                     ),
                   ),
                   onTap: () {},
                 ),
+                  ],
+                ),
+                
+                OnboardingButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MainScreen(),
+                    ));
+                  },
+                  label: 'Log In',
+                  backgroundColour: Colors.blue,
+                  textColour: Colors.white,
+                ),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Dont have an account?',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 20,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SignupScreen(),
+                        ));
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

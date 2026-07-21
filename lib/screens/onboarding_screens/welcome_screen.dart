@@ -13,7 +13,6 @@ class WelcomeScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(
                 Icons.earbuds,
@@ -41,6 +40,9 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {}),
               Text(
                 'or',
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               ),
               OnboardingButton(
                 onPressed: () {
@@ -50,7 +52,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   );
                 },
-                label: 'create an account',
+                label: 'Create an account',
                 backgroundColour: Colors.blue,
                 textColour: Colors.white,
               ),
@@ -58,14 +60,23 @@ class WelcomeScreen extends StatelessWidget {
                 height: 30,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('already have an account?'),
+                  Text(
+                    'Already have an account?',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
                   InkWell(
                     child: Text(
-                      'login',
+                      'Login',
                       style: TextStyle(
                         color: Colors.blue,
+                        fontSize: 20,
                       ),
                     ),
                     onTap: () {

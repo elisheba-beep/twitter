@@ -13,26 +13,29 @@ class EliseTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-    controller: controller,
-      decoration: InputDecoration(
-        labelText: hintText,
-        prefixIcon: Icon(
-         leadingIcon,
-        ),
-        floatingLabelBehavior: FloatingLabelBehavior.auto,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            30,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: hintText,
+          prefixIcon: Icon(
+            leadingIcon,
           ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.blue,
-            width: 2,
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              30,
+            ),
           ),
-          borderRadius: BorderRadius.circular(
-            30,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(
+              30,
+            ),
           ),
         ),
       ),
