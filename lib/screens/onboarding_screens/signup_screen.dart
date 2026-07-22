@@ -36,12 +36,12 @@ class SignupScreen extends StatelessWidget {
                 ),
                 EliseTextField(
                   hintText: 'First Name',
-                  leadingIcon: Icons.cases,
+                  leadingIcon: Icons.cases_rounded,
                   controller: firstNameController,
                 ),
                 EliseTextField(
                   hintText: 'Last Name',
-                  leadingIcon: Icons.cases,
+                  leadingIcon: Icons.cases_rounded,
                   controller: lastNameController,
                 ),
                 EliseTextField(
