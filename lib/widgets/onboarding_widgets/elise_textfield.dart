@@ -15,6 +15,7 @@ class EliseTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
+      // make this a textformfield
       child: TextField(
         controller: controller,
         decoration: InputDecoration(

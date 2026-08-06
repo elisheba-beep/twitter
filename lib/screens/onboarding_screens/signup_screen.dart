@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
+  // use form validation with a global key
+  // dispose the controllers
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
